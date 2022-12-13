@@ -6,6 +6,7 @@
   config,
   pkgs,
   nix-colors,
+
   ...
 }: {
   imports = [
@@ -96,7 +97,8 @@
     mullvad-vpn
     mupdf
     networkmanagerapplet
-    ocenaudio
+    # ocenaudio
+    #armcord
     plex
     polychromatic
     qpwgraph
@@ -136,6 +138,8 @@
   };
 
   #colorScheme = nix-colors.colorSchemes.tomorrow-night;
+
+
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

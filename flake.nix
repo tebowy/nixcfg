@@ -29,6 +29,9 @@
     # This instantiates nixpkgs for each system listed
     # Allowing you to configure it (e.g. allowUnfree)
     # Our configurations will use these instances
+
+    overlays = import ./overlays;
+    
     legacyPackages = nixpkgs.lib.genAttrs ["x86_64-linux" "x86_64-darwin"] (
       system:
         import inputs.nixpkgs {
@@ -64,6 +67,7 @@
           ./home-manager/home.nix
           ./home-manager/linux.nix
           ./home-manager/gnome.nix
+          # ./home-manager/armcord.nix
         ];
       };
     };
