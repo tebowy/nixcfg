@@ -4,8 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # FIXME update it after 2022-11-15
-    hardware.url = "github:nixos/nixos-hardware/419dcc0ec767803182ed01a326f134230578bf60";
+    hardware.url = "github:nixos/nixos-hardware";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
@@ -17,11 +16,14 @@
     flake-utils.url = "github:numtide/flake-utils";
     # nur.url = github:nix-community/NUR;
     # yi-pkg.url = github:yilozt/nurpkg;
+    nix-index-database.url = "github:Mic92/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
     nixpkgs,
     home-manager,
+    nix-index-database,
     # nur,
     # yi-pkg,
     ...
@@ -29,6 +31,9 @@
     # This instantiates nixpkgs for each system listed
     # Allowing you to configure it (e.g. allowUnfree)
     # Our configurations will use these instances
+
+    overlays = import ./overlays/default.nix;
+
     legacyPackages = nixpkgs.lib.genAttrs ["x86_64-linux" "x86_64-darwin"] (
       system:
         import inputs.nixpkgs {
@@ -46,12 +51,6 @@
         specialArgs = {inherit inputs;}; # Pass flake inputs to our config
         modules = [
           ./nixos/configuration.nix
-          # ./nixos/resolved.nix
-          ./nixos/desktop.nix
-          ./nixos/steam.nix
-          ./nixos/pkgs.nix
-          ./nixos/hw.nix
-          ./nixos/hardware-configuration.nix
         ];
       };
     };
@@ -62,8 +61,6 @@
         extraSpecialArgs = {inherit inputs;}; # Pass flake inputs to our config
         modules = [
           ./home-manager/home.nix
-          ./home-manager/linux.nix
-          ./home-manager/gnome.nix
         ];
       };
     };

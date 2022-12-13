@@ -7,6 +7,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  programs._1password.enable = true;
   programs._1password-gui.enable = true;
   programs._1password-gui.polkitPolicyOwners = ["anon"];
   services.gnome.gnome-browser-connector.enable = true;
@@ -28,9 +29,12 @@
   #};
   boot.plymouth.enable = true;
   services.xserver.displayManager.gdm.enable = true;
+  # environment.variables.LANG = "en_IE.UTF-8";
+  # services.xserver.displayManager.setupCommands = "export LANG=en_IE.UTF-8";
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.xkbOptions = "parens:swap_brackets,ctrl:nocaps";
   services.gnome.gnome-remote-desktop.enable = true;
+  services.gnome.sushi.enable = true;
   services.xserver.libinput.enable = true;
 
   fonts.enableDefaultFonts = true;
