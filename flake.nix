@@ -51,12 +51,6 @@
         specialArgs = {inherit inputs;}; # Pass flake inputs to our config
         modules = [
           ./nixos/configuration.nix
-          # ./nixos/resolved.nix
-          ./nixos/desktop.nix
-          ./nixos/steam.nix
-          ./nixos/pkgs.nix
-          ./nixos/hw.nix
-          ./nixos/hardware-configuration.nix
         ];
       };
     };
@@ -67,11 +61,6 @@
         extraSpecialArgs = {inherit inputs;}; # Pass flake inputs to our config
         modules = [
           ./home-manager/home.nix
-          ./home-manager/linux.nix
-          ./home-manager/gnome.nix
-          ./home-manager/armcord.nix
-          # nix-index-database.nixosModules.nix-index
-          
         ];
       };
     };

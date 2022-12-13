@@ -7,17 +7,58 @@
   pkgs,
   ...
 }: {
+  imports = [
+    # If you want to use modules your own flake exports (from modules/nixos):
+    # outputs.nixosModules.example
+
+    # Or modules from other flakes (such as nixos-hardware):
+    # inputs.hardware.nixosModules.common-cpu-amd
+    # inputs.hardware.nixosModules.common-ssd
+
+    # You can also split up your configuration and import pieces of it here:
+    # ./users.nix
+
+    # Import your generated (nixos-generate-config) hardware configuration
+    ./cfg.nix
+    ./desktop.nix
+    ./steam.nix
+    ./pkgs.nix
+    ./hw.nix
+    ./hardware-configuration.nix
+  ];
+  nixpkgs = {
+    # You can add overlays here
+    overlays = [
+      # If you want to use overlays your own flake exports (from overlays dir):
+      # outputs.overlays.modifications
+      # outputs.overlays.additions
+
+      # Or overlays exported from other flakes:
+      # neovim-nightly-overlay.overlays.default
+
+      # Or define it inline, for example:
+      # (final: prev: {
+      #   hi = final.hello.overrideAttrs (oldAttrs: {
+      #     patches = [ ./change-hello-to-hi.patch ];
+      #   });
+      # })
+    ];
+    # Configure your nixpkgs instance
+    config = {
+      # Disable if you don't want unfree packages
+      allowUnfree = true;
+    };
+  };
+
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
-  };
 
-  nix = {
     settings = {
       # Enable flakes and new 'nix' command
       experimental-features = "nix-command flakes";
@@ -28,14 +69,12 @@
 
   networking.hostName = "nara";
 
-  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
     anon = {
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
-      extraGroups = ["networkmanager" "wheel" "openrazer" "plugdev" "podman"];
+      extraGroups = ["networkmanager" "wheel" "openrazer" "plugdev" "podman" "onepassword-cli" "onepassword"];
       description = "Anon";
       shell = pkgs.fish;
     };
@@ -54,43 +93,6 @@
     # Use keys only. Remove if you want to SSH using password (not recommended)
     passwordAuthentication = false;
   };
-
-  # TODO check
-  services.nscd.enableNsncd = true;
-
-  services.localtimed.enable = true;
-  # Select internationalisation properties.
-  i18n = {
-    supportedLocales = ["all"];
-
-    defaultLocale = "en_IE.utf8";
-
-    extraLocaleSettings = {
-      LC_TIME = "pl_PL.utf8";
-    };
-  };
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "pl";
-    xkbVariant = "";
-  };
-
-  # Configure console keymap
-  console.keyMap = "pl3";
-
-  programs.command-not-found.enable = false;
-
-  virtualisation.podman.enable = true;
-  virtualisation.podman.dockerCompat = true;
-  virtualisation.podman.dockerSocket.enable = true;
-  # services.tailscale.enable = true;
-  virtualisation.appvm = {
-    enable = true;
-    user = "anon";
-  };
-  networking.networkmanager.enable = true;
-  networking.firewall.enable = false;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "22.05";

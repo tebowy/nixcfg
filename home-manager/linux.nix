@@ -7,16 +7,17 @@
   ...
 }: {
   home.packages = with pkgs; [
+    # displaylink
+    # woeusb-ng
     #cope
     #mullvad
     #nix-du
-    nix-tree
     #rocm-opencl-icd #opencl amd gcn
     appimage-run
     aspell
-    # displaylink
     dxvk
     ethtool
+    exfatprogs
     fzf
     git
     hdparm
@@ -32,6 +33,7 @@
     maigret
     mat2
     nfs-utils
+    nix-tree
     nmon
     ntfs3g
     opendrop
@@ -43,29 +45,35 @@
     tailscale
     usbutils
     vulkan-tools
-    # woeusb-ng
-    exfatprogs
 
     #GUI
-    wine
-    winetricks
-    lutris
     # bitwig-studio
-    #fractal
-    fractal-next
-    vivaldi
-    vivaldi-widevine
     # microsoft-edge
-    brave
+    # woeusb-ng
+    #fractal
     audacity
+    brave
+    fractal-next
+    github-desktop
+    logseq
+    lutris
     mpv
     mpvScripts.youtube-quality
+    parsec-bin
+    reaper
+    # (reaper.overrideAttrs (prev: {
+    #   version = "6.73";
+    #   src = pkgs.fetchurl {
+    #     sha256 = "sha256-B/zDcW43ChhnAnGL+UEAt/QChxxEpv+yMgO7WsUi84k=";
+    #   };
+    # }))
     transmission-gtk
     transmission-remote-gtk
+    vivaldi
+    vivaldi-widevine
+    wine
+    winetricks
     woeusb
-    parsec-bin
-    # woeusb-ng
-    reaper
 
     #TODO move those to gnome.nix
     # gnome-builder
