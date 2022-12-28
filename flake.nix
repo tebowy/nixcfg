@@ -4,8 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # FIXME update it after 2022-11-15
-    hardware.url = "github:nixos/nixos-hardware/419dcc0ec767803182ed01a326f134230578bf60";
+    hardware.url = "github:nixos/nixos-hardware";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
@@ -17,11 +16,14 @@
     flake-utils.url = "github:numtide/flake-utils";
     # nur.url = github:nix-community/NUR;
     # yi-pkg.url = github:yilozt/nurpkg;
+    nix-index-database.url = "github:Mic92/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
     nixpkgs,
     home-manager,
+    nix-index-database,
     # nur,
     # yi-pkg,
     ...
@@ -30,8 +32,8 @@
     # Allowing you to configure it (e.g. allowUnfree)
     # Our configurations will use these instances
 
-    overlays = import ./overlays;
-    
+    overlays = import ./overlays/default.nix;
+
     legacyPackages = nixpkgs.lib.genAttrs ["x86_64-linux" "x86_64-darwin"] (
       system:
         import inputs.nixpkgs {
@@ -67,7 +69,9 @@
           ./home-manager/home.nix
           ./home-manager/linux.nix
           ./home-manager/gnome.nix
-          # ./home-manager/armcord.nix
+          ./home-manager/armcord.nix
+          # nix-index-database.nixosModules.nix-index
+          
         ];
       };
     };

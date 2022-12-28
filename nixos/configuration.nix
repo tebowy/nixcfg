@@ -66,14 +66,6 @@
     defaultLocale = "en_IE.utf8";
 
     extraLocaleSettings = {
-      LC_ADDRESS = "pl_PL.utf8";
-      LC_IDENTIFICATION = "pl_PL.utf8";
-      LC_MEASUREMENT = "pl_PL.utf8";
-      LC_MONETARY = "pl_PL.utf8";
-      LC_NAME = "pl_PL.utf8";
-      LC_NUMERIC = "pl_PL.utf8";
-      LC_PAPER = "pl_PL.utf8";
-      LC_TELEPHONE = "pl_PL.utf8";
       LC_TIME = "pl_PL.utf8";
     };
   };

@@ -14,7 +14,7 @@
     #rocm-opencl-icd #opencl amd gcn
     appimage-run
     aspell
-    displaylink
+    # displaylink
     dxvk
     ethtool
     fzf
@@ -50,11 +50,12 @@
     wine
     winetricks
     lutris
+    # bitwig-studio
     #fractal
     fractal-next
     vivaldi
     vivaldi-widevine
-    microsoft-edge
+    # microsoft-edge
     brave
     audacity
     mpv
@@ -62,10 +63,12 @@
     transmission-gtk
     transmission-remote-gtk
     woeusb
+    parsec-bin
     # woeusb-ng
+    reaper
 
     #TODO move those to gnome.nix
-    gnome-builder
+    # gnome-builder
     gnome.dconf-editor
     gnome.ghex
     gnome.gnome-boxes
@@ -77,6 +80,8 @@
     blackbox-terminal # A beautiful GTK4 terminal
     # yi-pkg.system-monitoring-center
   ];
+
+  programs.nix-index.enable = true;
 
   programs.firefox = {
     enable = true;

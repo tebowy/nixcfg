@@ -16,7 +16,7 @@
     '';
     packages.myVimPackage = with pkgs.vimPlugins; {
       # loaded on launch
-      start = [vim-nix];
+      start = [vim-nix statix];
       # manually loadable by calling `:packadd $plugin-name`
       opt = [];
     };
