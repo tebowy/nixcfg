@@ -5,15 +5,15 @@
   pkgs,
   # yi-pkg,
   ...
-}: { # Add stuff for your user as you see fit:
+}: {
+  # Add stuff for your user as you see fit:
   # home.packages = with pkgs; [ steam ];
   home.packages = with pkgs; [
     #cli
     alejandra
-    #ant
     binwalk
     cowsay
-    #cvs
+    common-updater-scripts
     du-dust
     duf
     fd
@@ -25,7 +25,6 @@
     ipcalc
     ldns
     lsof
-    #maven
     ncdu
     nmap
     platinum-searcher
@@ -42,21 +41,16 @@
     packer
     ntfs3g
     # exfat
-
     nix-index
     flyctl
-    # fishPlugins.fzf-fish
-    # fishPlugins.hydro
-
     bintools-unwrapped
 
     #gui
     font-config-info
     font-manager
-    # firefox
-
-    #####x
     anydesk
+    obsidian
+    f3d
     barrier
     bottles
     celluloid
@@ -67,7 +61,6 @@
     fusee-interfacee-tk
     fusee-launcher
     glava
-
     helvum
     input-remapper
     jamesdsp
@@ -78,7 +71,6 @@
     libreoffice
     ltunify
     meld
-
     mullvad-vpn
     mupdf
     networkmanagerapplet
@@ -91,8 +83,6 @@
     remote-touchpad
     sublime-merge
     sublime4
-    # transmission-gtk
-    # transmission-remote-gtk
     virt-manager
     vlc
     vscodium-fhs
@@ -100,17 +90,32 @@
     zeal
   ];
 
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.tmux.enable = true;
   programs.tmux.shortcut = "a";
-
   programs.gh.enable = true;
 
-    programs.fish = {
+  programs.neovim = {
+    viAlias = true;
+    vimAlias = true;
+    enable = true;
+    extraConfig = ''
+      set number relativenumber
+    '';
+    plugins = with pkgs.vimPlugins; [
+      vim-nix
+      statix
+    ];
+  };
+
+  programs.fish = {
     enable = true;
     interactiveShellInit = "
-    set --export LANG en_IE.UTF-8
+    # set --export LANG en_IE.UTF-8
     source /home/anon/.config/op/plugins.sh
     ";
     plugins = [
@@ -124,5 +129,4 @@
       }
     ];
   };
-
 }

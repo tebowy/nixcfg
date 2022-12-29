@@ -53,13 +53,20 @@
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
     settings = {
+      # https://jackson.dev/post/nix-reasonable-defaults/
+      connect-timeout = 5;
+      log-lines = 25;
+      min-free = 128000000;
+      max-free = 1000000000;
+      fallback = true;
+      warn-dirty = false;
       # Enable flakes and new 'nix' command
       experimental-features = "nix-command flakes";
       # Deduplicate and optimize nix store
@@ -74,9 +81,17 @@
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
       ];
-      extraGroups = ["networkmanager" "wheel" "openrazer" "plugdev" "podman" "onepassword-cli" "onepassword"];
       description = "Anon";
       shell = pkgs.fish;
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "openrazer"
+        "plugdev"
+        "podman"
+        "onepassword-cli"
+        "onepassword"
+      ];
     };
   };
   security.sudo.wheelNeedsPassword = false;
@@ -95,5 +110,5 @@
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "22.05";
+  system.stateVersion = "22.11";
 }

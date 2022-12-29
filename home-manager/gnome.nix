@@ -32,17 +32,16 @@
     pop-shell
   ];
 in {
-  home.packages = extensions;
-  # TODO figure this out
-  # home.packages = with pkgs; [
-  #   gnome-builder
-  #   gnome.dconf-editor
-  #   gnome.ghex
-  #   gnome.gnome-boxes
-  #   gnome.gnome-nettool
-  #   gnome.gnome-sound-recorder
-  #   gnome.gnome-tweaks
-  #   gnome.gnome-terminal
-  #   gnome.vinagre
-  #  ];
+  home.packages = with extensions;
+  with pkgs; [
+    # gnome-builder
+    gnome.dconf-editor
+    gnome.ghex
+    gnome.gnome-boxes
+    gnome.gnome-nettool
+    gnome.gnome-sound-recorder
+    gnome.gnome-tweaks
+    gnome.vinagre
+    blackbox-terminal # A beautiful GTK4 terminal
+  ];
 }

@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [
-    # If you want to use modules from other flakes (such as nixos-hardware), use something like:
     inputs.hardware.nixosModules.common-pc-ssd
     inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-cpu-amd-pstate
@@ -16,12 +15,16 @@
   # virtualisation.virtualbox.host.enable = true;
 
   hardware.openrazer.enable = true;
+  hardware.wirelessRegulatoryDatabase = true;
   services.hardware.openrgb.enable = true;
+  hardware.logitech.wireless.enable = true;
+  hardware.logitech.wireless.enableGraphical = true;
   hardware.cpu.amd.updateMicrocode = true;
   services.auto-cpufreq.enable = true;
   services.power-profiles-daemon.enable = true;
   # iOS Tethering
   services.usbmuxd.enable = true;
+  networking.wireless.extraConfig = "country=PL";
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
