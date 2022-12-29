@@ -9,7 +9,6 @@
   # Select internationalisation properties.
   i18n = {
     supportedLocales = ["all"];
-    defaultLocale = "en_IE.utf8";
     extraLocaleSettings = {
       LC_TIME = "pl_PL.utf8";
     };
@@ -24,6 +23,7 @@
   console.keyMap = "pl3";
 
   programs.command-not-found.enable = false;
+  environment.variables.EDITOR = "nvim";
 
   virtualisation.podman.enable = true;
   virtualisation.podman.dockerCompat = true;

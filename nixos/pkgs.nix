@@ -5,27 +5,12 @@
 }: {
   programs.mtr.enable = true;
   programs.htop.enable = true;
-  # programs.fish.enable = true;
-  programs.neovim.enable = true;
-  programs.neovim.vimAlias = true;
-  programs.neovim.viAlias = true;
-  programs.neovim.defaultEditor = true;
-  programs.neovim.configure = {
-    customRC = ''
-      " here your custom configuration goes!
-    '';
-    packages.myVimPackage = with pkgs.vimPlugins; {
-      # loaded on launch
-      start = [vim-nix statix];
-      # manually loadable by calling `:packadd $plugin-name`
-      opt = [];
-    };
-  };
+  programs.fish.enable = true;
 
   environment.systemPackages = with pkgs; [
     home-manager
     git
-
+    iw
     fishPlugins.fzf-fish
     fishPlugins.hydro
   ];
