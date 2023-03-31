@@ -59,6 +59,9 @@
 
   # FIXME: Add the rest of your current configuration
 
+  services.fstrim.enable = true;
+  
+
   networking.hostName = "albert";
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
