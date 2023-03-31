@@ -50,10 +50,21 @@
         pkgs = legacyPackages.x86_64-linux;
         specialArgs = {inherit inputs;}; # Pass flake inputs to our config
         modules = [
-          ./nixos/configuration.nix
+          # ./nixos/configuration.nix
+          ./nixos/nara-configuration.nix
+          ./nixos/laptop-hardware-configuration.nix
+          ./nixos/hw.nix
+          ./nixos/desktop.nix
+          ./nixos/steam.nix
         ];
       };
+      albert = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+        # > Our main nixos configuration file <
+        modules = [ ./nixos/albert-configuration.nix ];
+      };
     };
+
 
     homeConfigurations = {
       "anon@nara" = home-manager.lib.homeManagerConfiguration {

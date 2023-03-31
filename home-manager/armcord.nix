@@ -13,6 +13,5 @@
         sha256 = "sha256-oXrx+bQgVf8Pf70M4saXR2Kb2QmSMIGKhBDrTsN/CKU=";
       };
     }))
-    
   ];
 }
