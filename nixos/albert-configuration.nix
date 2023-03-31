@@ -73,6 +73,8 @@
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
 
+  networking.firewall.checkReversePath = "loose";
+
   services.tailscale.enable = true;
   environment.systemPackages = with pkgs; [
     wget

@@ -29,6 +29,7 @@
   virtualisation.podman.dockerCompat = true;
   virtualisation.podman.dockerSocket.enable = true;
   # services.tailscale.enable = true;
+  networking.firewall.checkReversePath = "loose";
   virtualisation.appvm = {
     enable = true;
     user = "anon";
