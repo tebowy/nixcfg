@@ -44,7 +44,7 @@
     powertop
     rpm
     solaar
-    tailscale
+    # tailscale
     usbutils
     vulkan-tools
 
