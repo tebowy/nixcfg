@@ -4,12 +4,15 @@
   ...
 }: {
   home.packages = with pkgs; [
-    (armcord.overrideAttrs (prev: {
-      version = "3.1.4";
+    armcord
+    discord
+    (betterdiscord-installer.overrideAttrs (prev: {
+      version = "1.2.0";
       src = pkgs.fetchurl {
-        url = "https://github.com/ArmCord/ArmCord/releases/download/v3.1.4/ArmCord_3.1.4_amd64.deb";
-        sha256 = "sha256-B/zDcW43ChhnAnGL+UEAt/QChxxEpv+yMgO7WsUi84k=";
+        url = "https://github.com/BetterDiscord/Installer/releases/download/v1.2.0/BetterDiscord-Linux.AppImage";
+        sha256 = "sha256-oXrx+bQgVf8Pf70M4saXR2Kb2QmSMIGKhBDrTsN/CKU=";
       };
     }))
+    
   ];
 }

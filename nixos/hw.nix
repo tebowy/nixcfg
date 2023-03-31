@@ -11,8 +11,8 @@
     inputs.hardware.nixosModules.common-gpu-amd
   ];
 
-  # virtualisation.virtualbox.host.enableExtensionPack = true;
-  # virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  virtualisation.virtualbox.host.enable = true;
 
   hardware.openrazer.enable = true;
   hardware.wirelessRegulatoryDatabase = true;

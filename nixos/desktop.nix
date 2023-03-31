@@ -63,6 +63,8 @@
     fira-code
     fira-code-symbols
     fantasque-sans-mono
+
+    nerdfonts
   ];
 
   services.avahi = {

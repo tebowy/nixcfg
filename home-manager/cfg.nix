@@ -16,6 +16,7 @@
     common-updater-scripts
     du-dust
     duf
+    exa
     fd
     fdupes
     figlet
@@ -32,6 +33,7 @@
     ripgrep-all
     silver-searcher
     tree
+    jq
     wget
     whois
     ghostscript
@@ -44,6 +46,9 @@
     nix-index
     flyctl
     bintools-unwrapped
+    megacmd
+    megatools
+    neofetch
 
     #gui
     font-config-info
@@ -61,7 +66,8 @@
     fusee-interfacee-tk
     fusee-launcher
     glava
-    helvum
+    gitkraken
+    # helvum
     input-remapper
     jamesdsp
     japa
@@ -111,6 +117,7 @@
       statix
     ];
   };
+  programs.starship.enable = true;
 
   programs.fish = {
     enable = true;
@@ -118,15 +125,29 @@
     # set --export LANG en_IE.UTF-8
     source /home/anon/.config/op/plugins.sh
     ";
+
+    shellAbbrs = {
+      ls = "exa";
+      l = "exa -la";
+      ll = "exa -l";
+      snrs = "sudo nixos-rebuild --flake . switch";
+      hms = "home-manager --flake . switch";
+      v = "nvim";
+    };
+
+    functions = {
+      starship_transient_rprompt_func = "starship module time";
+      # onEvent = "fish_command_not_found";
+    };
     plugins = [
       {
         name = "fzf-fish";
         src = pkgs.fishPlugins.fzf-fish;
       }
-      {
-        name = "hydro";
-        src = pkgs.fishPlugins.hydro;
-      }
+      # {
+      #   name = "hydro";
+      #   src = pkgs.fishPlugins.hydro;
+      # }
     ];
   };
 }

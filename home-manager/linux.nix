@@ -7,14 +7,16 @@
   ...
 }: {
   home.packages = with pkgs; [
+    ## CLI
     # displaylink
     # woeusb-ng
-    #cope
-    #mullvad
-    #nix-du
-    #rocm-opencl-icd #opencl amd gcn
+    # cope
+    # mullvad
+    # nix-du
+    # rocm-opencl-icd #opencl amd gcn
     appimage-run
     aspell
+    distrobox
     dxvk
     ethtool
     exfatprogs
@@ -46,34 +48,35 @@
     usbutils
     vulkan-tools
 
-    #GUI
+    ## GUI
     # bitwig-studio
     # microsoft-edge
     # woeusb-ng
-    #fractal
+    # fractal
     audacity
-    soundconverter
     brave
-    fractal-next
+    # fractal-next
     github-desktop
     irccloud
+    librewolf
     logseq
     lutris
-    srain
-    pscircle
     mpv
     mpvScripts.youtube-quality
-    parsec-bin
+    # parsec-bin
+    pscircle
+    p7zip
+    soundconverter
+    srain
     transmission-gtk
     transmission-remote-gtk
     vivaldi
-    vivaldi-widevine
+    widevine-cdm
     wine
     winetricks
     woeusb
-    librewolf
 
-    la-capitaine-icon-theme
+    # la-capitaine-icon-theme
     # yi-pkg.system-monitoring-center
   ];
 
@@ -81,13 +84,9 @@
 
   programs.firefox = {
     enable = true;
-    # enableGnomeExtensions = true;
     package = pkgs.firefox.override {
-      # See nixpkgs' firefox/wrapper.nix to check which options you can use
       cfg = {
-        # Gnome shell native connector
         enableGnomeExtensions = true;
-        # Tridactyl native connector
         enableTridactylNative = true;
       };
     };

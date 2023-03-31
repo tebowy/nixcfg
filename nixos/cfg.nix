@@ -35,4 +35,5 @@
   };
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
+  networking.extraHosts = "10.42.9.156 lbwas.deer.ts.wro.nsn-rdnet.net";
 }
