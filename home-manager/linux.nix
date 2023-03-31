@@ -14,10 +14,8 @@
     # mullvad
     # nix-du
     # rocm-opencl-icd #opencl amd gcn
-    appimage-run
     aspell
     distrobox
-    dxvk
     ethtool
     exfatprogs
     fzf
@@ -46,7 +44,6 @@
     solaar
     # tailscale
     usbutils
-    vulkan-tools
 
     # la-capitaine-icon-theme
     # yi-pkg.system-monitoring-center

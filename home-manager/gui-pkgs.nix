@@ -10,6 +10,11 @@
   # home.packages = with pkgs; [ steam ];
   home.packages = with pkgs; [
     #gui
+    appimage-run
+    dxvk
+    vulkan-tools
+
+    
     font-config-info
     font-manager
     anydesk
