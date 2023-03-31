@@ -49,51 +49,6 @@
     megacmd
     megatools
     neofetch
-
-    #gui
-    font-config-info
-    font-manager
-    anydesk
-    obsidian
-    f3d
-    barrier
-    bottles
-    celluloid
-    diffpdf
-    drawing
-    easyeffects
-    electrum
-    fusee-interfacee-tk
-    fusee-launcher
-    glava
-    gitkraken
-    # helvum
-    input-remapper
-    jamesdsp
-    japa
-    libdrm
-    libguestfs
-    libinput
-    libreoffice
-    ltunify
-    meld
-    mullvad-vpn
-    mupdf
-    networkmanagerapplet
-    nicotine-plus
-    # ocenaudio
-    plex
-    polychromatic
-    qpwgraph
-    razergenie
-    remote-touchpad
-    sublime-merge
-    sublime4
-    virt-manager
-    vlc
-    vscodium-fhs
-    zathura
-    zeal
   ];
 
   programs.direnv.enable = true;

@@ -1,12 +1,17 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-
-{ inputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules from other flakes (such as nixos-hardware):
- #    inputs.hardware.nixosModules.common-cpu-amd
-  #   inputs.hardware.nixosModules.common-ssd
+    #    inputs.hardware.nixosModules.common-cpu-amd
+    #   inputs.hardware.nixosModules.common-ssd
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
@@ -38,7 +43,7 @@
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
@@ -55,27 +60,29 @@
   # FIXME: Add the rest of your current configuration
 
   networking.hostName = "albert";
- boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
- networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true;
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-
-
-
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
 
-        services.tailscale.enable = true;
-environment.systemPackages = with pkgs; [
-    wget neovim nano zsh file git
-];
-   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
+  services.tailscale.enable = true;
+  environment.systemPackages = with pkgs; [
+    wget
+    neovim
+    nano
+    zsh
+    file
+    git
+  ];
+  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
     # FIXME: Replace with your username
     anon = {
@@ -88,7 +95,7 @@ environment.systemPackages = with pkgs; [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [ "wheel"  "networkmanager" ];
+      extraGroups = ["wheel" "networkmanager"];
     };
   };
 

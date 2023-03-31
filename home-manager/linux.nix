@@ -48,47 +48,9 @@
     usbutils
     vulkan-tools
 
-    ## GUI
-    # bitwig-studio
-    # microsoft-edge
-    # woeusb-ng
-    # fractal
-    audacity
-    brave
-    # fractal-next
-    github-desktop
-    irccloud
-    librewolf
-    logseq
-    lutris
-    mpv
-    mpvScripts.youtube-quality
-    # parsec-bin
-    pscircle
-    p7zip
-    soundconverter
-    srain
-    transmission-gtk
-    transmission-remote-gtk
-    vivaldi
-    widevine-cdm
-    wine
-    winetricks
-    woeusb
-
     # la-capitaine-icon-theme
     # yi-pkg.system-monitoring-center
   ];
 
   programs.nix-index.enable = true;
-
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox.override {
-      cfg = {
-        enableGnomeExtensions = true;
-        enableTridactylNative = true;
-      };
-    };
-  };
 }

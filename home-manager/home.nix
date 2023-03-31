@@ -18,8 +18,9 @@
 
     # You can also split up your configuration and import pieces of it here:
     ./cfg.nix
-    ./armcord.nix
-    ./gnome.nix
+    # ./gui-pkgs.nix
+    # ./armcord.nix
+    # ./gnome.nix
     ./linux.nix
   ];
 

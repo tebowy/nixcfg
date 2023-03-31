@@ -61,15 +61,24 @@
         ];
       };
       albert = nixpkgs-stable.lib.nixosSystem {
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+        specialArgs = {inherit inputs;}; # Pass flake inputs to our config
         # > Our main nixos configuration file <
-        modules = [ ./nixos/albert-configuration.nix ];
+        modules = [./nixos/albert-configuration.nix];
       };
     };
 
-
     homeConfigurations = {
       "anon@nara" = home-manager.lib.homeManagerConfiguration {
+        pkgs = legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs;}; # Pass flake inputs to our config
+        modules = [
+          ./home-manager/home.nix
+          ./home-manager/gui-pkgs.nix
+          ./home-manager/gnome.nix
+          ./home-manager/armcord.nix
+        ];
+      };
+      "anon@albert" = home-manager.lib.homeManagerConfiguration {
         pkgs = legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs;}; # Pass flake inputs to our config
         modules = [

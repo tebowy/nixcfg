@@ -71,6 +71,7 @@
   };
 
   networking.hostName = "nara";
+  services.tailscale.enable = true;
 
   users.users = {
     anon = {
