@@ -49,6 +49,13 @@
     megacmd
     megatools
     neofetch
+
+    qbittorrent-nox
+    sabnzbd
+    rclone
+    sonarr
+    radarr
+    prowlarr
   ];
 
   programs.direnv.enable = true;
