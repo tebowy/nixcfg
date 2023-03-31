@@ -49,6 +49,7 @@
     megacmd
     megatools
     neofetch
+    rsync
 
     qbittorrent-nox
     sabnzbd
@@ -56,6 +57,7 @@
     sonarr
     radarr
     prowlarr
+
   ];
 
   programs.direnv.enable = true;
