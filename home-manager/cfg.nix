@@ -51,12 +51,15 @@
     neofetch
     rsync
 
+    rclone
     qbittorrent-nox
     sabnzbd
-    rclone
     sonarr
     radarr
     prowlarr
+    bazarr
+    lidarr
+    readarr
 
   ];
 
