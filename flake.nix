@@ -4,6 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-22.11";
     hardware.url = "github:nixos/nixos-hardware";
 
     # Home manager
@@ -58,7 +59,7 @@
           ./nixos/steam.nix
         ];
       };
-      albert = nixpkgs.lib.nixosSystem {
+      albert = nixpkgs-stable.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         # > Our main nixos configuration file <
         modules = [ ./nixos/albert-configuration.nix ];
