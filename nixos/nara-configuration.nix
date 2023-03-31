@@ -19,8 +19,12 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ./cfg.nix
-    ./pkgs.nix
+    ./nara-cfg.nix
+    ./common-pkgs.nix
+              ./laptop-hardware-configuration.nix
+          ./hw.nix
+          ./desktop.nix
+          ./steam.nix
   ];
   nixpkgs = {
     # You can add overlays here

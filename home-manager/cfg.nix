@@ -51,9 +51,6 @@
     neofetch
     rsync
 
-    rclone
-    qbittorrent-nox
-    sabnzbd
     sonarr
     radarr
     prowlarr
@@ -61,6 +58,14 @@
     lidarr
     readarr
 
+    rclone
+    qbittorrent-nox
+    transmission
+    tremc
+    stig
+    sabnzbd
+    nzbget
+    unpackerr
   ];
 
   programs.direnv.enable = true;

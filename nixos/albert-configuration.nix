@@ -18,6 +18,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./albert-hw.nix
+    ./common-pkgs.nix
   ];
 
   nixpkgs = {
