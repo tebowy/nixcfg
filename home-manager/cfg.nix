@@ -60,7 +60,7 @@
 
     rclone
     qbittorrent-nox
-    transmission
+    # transmission
     tremc
     stig
     sabnzbd
