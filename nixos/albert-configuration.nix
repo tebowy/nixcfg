@@ -93,6 +93,7 @@
       # Be sure to change it (using passwd) after rebooting!
       #initialPassword = "correcthorsebatterystaple";
       isNormalUser = true;
+            shell = pkgs.fish;
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
@@ -110,6 +111,8 @@
     # Use keys only. Remove if you want to SSH using password (not recommended)
     passwordAuthentication = true;
   };
+
+  security.sudo.wheelNeedsPassword = false;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "22.11";
