@@ -64,6 +64,7 @@
   services.fstrim.enable = true;
   boot.kernel.sysctl."net.ipv4.ip_forward" = "1";
   boot.kernel.sysctl."net.ipv6.ip_forward" = "1";
+  boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = "1";
 
   networking.hostName = "albert";
   boot.loader.efi.canTouchEfiVariables = true;
