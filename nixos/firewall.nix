@@ -5,10 +5,16 @@
   pkgs,
   ...
 }: {
-
-  networking.firewall = { 
+  networking.firewall = {
     checkReversePath = "loose";
-  trustedInterfaces = ["tailscale0"];
-  allowedTCPPorts =  [ 14831 14832 ];
-};
-  }
+    trustedInterfaces = ["tailscale0"];
+    allowedTCPPorts = [
+      #plex
+      32400
+
+      #qbit
+      14831
+      14832
+    ];
+  };
+}

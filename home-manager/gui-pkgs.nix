@@ -14,7 +14,6 @@
     dxvk
     vulkan-tools
 
-    
     font-config-info
     font-manager
     anydesk

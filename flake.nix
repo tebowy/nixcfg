@@ -46,7 +46,7 @@
           config.allowUnfree = true;
         }
     );
-        legacyPackagesStable = nixpkgs-stable.lib.genAttrs ["x86_64-linux" "x86_64-darwin"] (
+    legacyPackagesStable = nixpkgs-stable.lib.genAttrs ["x86_64-linux" "x86_64-darwin"] (
       system:
         import inputs.nixpkgs-stable {
           inherit system;
@@ -64,7 +64,6 @@
         modules = [
           # ./nixos/configuration.nix
           ./nixos/nara-configuration.nix
-
         ];
       };
       albert = nixpkgs-stable.lib.nixosSystem {
@@ -72,7 +71,7 @@
         specialArgs = {inherit inputs;}; # Pass flake inputs to our config
         # > Our main nixos configuration file <
         modules = [
-        ./nixos/albert-configuration.nix
+          ./nixos/albert-configuration.nix
         ];
       };
     };
