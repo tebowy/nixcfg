@@ -46,7 +46,6 @@
     networkmanagerapplet
     nicotine-plus
     # ocenaudio
-    plex
     polychromatic
     qpwgraph
     razergenie
