@@ -39,6 +39,7 @@ in {
     gnome.ghex
     gnome.gnome-boxes
     gnome.gnome-nettool
+    # gnome.polari
     gnome.gnome-sound-recorder
     gnome.gnome-tweaks
     gnome.vinagre

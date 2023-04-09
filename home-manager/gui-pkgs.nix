@@ -37,7 +37,7 @@
     libdrm
     libguestfs
     libinput
-    libreoffice
+    # libreoffice
     ltunify
     meld
     mullvad-vpn
@@ -65,7 +65,7 @@
     brave
     # fractal-next
     github-desktop
-    irccloud
+    # irccloud
     librewolf
     logseq
     lutris
@@ -75,7 +75,7 @@
     pscircle
     p7zip
     soundconverter
-    srain
+    # srain
     transmission-gtk
     transmission-remote-gtk
     vivaldi
