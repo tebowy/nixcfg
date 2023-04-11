@@ -83,6 +83,7 @@
   services.tailscale.enable = true;
   environment.systemPackages = with pkgs; [
     plex
+    cloudflared
 
     wget
     neovim
