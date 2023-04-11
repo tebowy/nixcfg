@@ -17,6 +17,7 @@
     aspell
     distrobox
     ethtool
+    cloudflared
     exfatprogs
     fzf
     git
