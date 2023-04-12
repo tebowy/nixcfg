@@ -1,9 +1,12 @@
 {
+  inputs,
+  lib,
   config,
   pkgs,
+  # yi-pkg,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     transmission
 
   ];
