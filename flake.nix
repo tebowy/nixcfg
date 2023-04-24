@@ -93,6 +93,7 @@
         modules = [
           ./home-manager/home.nix
           ./home-manager/albert.nix
+          ./home-manager/rclone.nix
         ];
       };
     };
