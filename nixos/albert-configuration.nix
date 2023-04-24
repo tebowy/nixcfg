@@ -80,6 +80,11 @@
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
 
+  fileSystems."/mnt/data" = {
+    device = "/dev/sda2";
+    fsType = "ext4";
+  };
+
   services.tailscale.enable = true;
   environment.systemPackages = with pkgs; [
     plex
