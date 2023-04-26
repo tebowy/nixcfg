@@ -16,7 +16,6 @@ ${pkgs.rclone}/bin/rclone mount drive-app: /mnt/remote/ \
       --vfs-cache-mode full \
       --buffer-size 128M \
       --dir-cache-time 72h \
-      --drive-chunk-size 128M \
       --timeout 1h \
       --vfs-read-chunk-size 128M \
       --vfs-read-chunk-size-limit off \
