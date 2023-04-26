@@ -22,6 +22,7 @@ ${pkgs.rclone}/bin/rclone mount drive-app: /mnt/remote/ \
       --cache-chunk-no-memory \
       --no-modtime \
       --use-mmap \
+      --cache-dir "/mnt/data/.rclone-cache" \
       --log-level NOTICE \
       --log-file /home/anon/.config/rclone/logs/rclone.log
 ''
