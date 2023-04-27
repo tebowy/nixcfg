@@ -12,12 +12,16 @@
 ${pkgs.rclone}/bin/rclone mount drive-app: /mnt/remote/ \
       --allow-non-empty \
       --allow-other \
+      --drive-skip-gdocs \
       --umask 2 \
       --vfs-cache-mode full \
       --buffer-size 128M \
       --vfs-read-chunk-size 128M \
       --vfs-read-chunk-size-limit off \
       --vfs-cache-max-size 50Gi \
+      --drive-chunk-size=64M \
+      --drive-pacer-min-sleep=10ms \
+      --drive-pacer-burst=1000 \
       --cache-chunk-no-memory \
       --no-modtime \
       --use-mmap \
