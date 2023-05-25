@@ -87,6 +87,7 @@
       extraGroups = [
         "networkmanager"
         "wheel"
+        "adbusers"
         "openrazer"
         "plugdev"
         "podman"
