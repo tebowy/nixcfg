@@ -4,7 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-22.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
     hardware.url = "github:nixos/nixos-hardware";
 
     # Home manager
@@ -15,7 +15,7 @@
     # everything match nicely? Try nix-colors!
     nix-colors.url = "github:misterio77/nix-colors";
     flake-utils.url = "github:numtide/flake-utils";
-    nur.url = github:nix-community/NUR;
+    nur.url = "github:nix-community/NUR";
     # yi-pkg.url = github:yilozt/nurpkg;
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
