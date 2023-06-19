@@ -71,7 +71,7 @@
         specialArgs = {inherit inputs;}; # Pass flake inputs to our config
         # > Our main nixos configuration file <
         modules = [
-          ./nixos/albert-configuration.nix
+          # ./nixos/albert-configuration.nix
         ];
       };
     };

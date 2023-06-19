@@ -4,7 +4,8 @@
   ...
 }: {
   # TODO check
-  services.nscd.enableNsncd = true;
+  # now default
+  # services.nscd.enableNsncd = true;
   services.localtimed.enable = true;
   # Select internationalisation properties.
   i18n = {
